@@ -1,0 +1,43 @@
+﻿<Window x:Class="GitHubDownloader.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="GitHub Repo Downloader" Height="500" Width="600">
+    <Grid>
+        <StackPanel Margin="10">
+            <TextBlock Text="Mod Selection:" />
+            <ComboBox Name="cmbMode" SelectedIndex="0">
+                <ComboBoxItem Content="Using API" />
+                <ComboBoxItem Content="No API (Git Clone)" />
+            </ComboBox>
+
+            <TextBlock Text="GitHub PAT (Token):" />
+            <PasswordBox Name="txtPAT" />
+
+            <TextBlock Text="Repo Owner:" />
+            <TextBox Name="txtRepoOwner" />
+
+            <TextBlock Text="Repo Name:" />
+            <TextBox Name="txtRepoName" />
+
+            <TextBlock Text="Directory Path:" />
+            <TextBox Name="txtFolderPath" />
+
+            <TextBlock Text="Branch:" />
+            <TextBox Name="txtBranch" Text="master" />
+
+            <TextBlock Text="Download To:" />
+            <StackPanel Orientation="Horizontal">
+                <TextBox Name="txtDownloadPath" Width="400" IsReadOnly="True"/>
+                <Button Name="btnBrowse" Content="Browse" Click="btnBrowse_Click" />
+            </StackPanel>
+
+            <Button Name="btnDownload" Content="İndir" Click="btnDownload_Click" Margin="0,10,0,0"/>
+
+            <ProgressBar Name="progressBar" Height="20" Visibility="Hidden" />
+
+            <TreeView Name="treeViewFiles" Height="150"/>
+
+            <ListBox Name="lstStatus" Height="100"/>
+        </StackPanel>
+    </Grid>
+</Window>
