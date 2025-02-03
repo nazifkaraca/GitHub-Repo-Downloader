@@ -11,10 +11,15 @@ This tool is ideal for developers who want to fetch specific project components 
 
 ## 🔥 Features
 ✅ **Download public & private repositories** (via API mode with a GitHub PAT)
+
 ✅ **Switch between API and Non-API mode** seamlessly
+
 ✅ **Folder Picker**: Choose where to save downloaded files
+
 ✅ **Progress Tracking**: Live progress updates while downloading
+
 ✅ **Tree View Structure**: View downloaded files in a hierarchical format
+
 ✅ **Minimal Dependencies**: Uses Octokit.NET for API requests and `git sparse-checkout` for API-less downloads
 
 ---
@@ -92,7 +97,7 @@ git sparse-checkout set path/to/folder
 ---
 
 ## 📜 License
-This project is licensed under the **MIT License**. Feel free to use and modify!
+This project is licensed under the **AGPL-3.0 License**.
 
 ---
 
