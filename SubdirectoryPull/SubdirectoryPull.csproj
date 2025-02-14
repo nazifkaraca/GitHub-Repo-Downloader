@@ -1,16 +1,30 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <UseWPF>true</UseWPF>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Octokit" Version="14.0.0" />
-    <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
-  </ItemGroup>
+	<PropertyGroup>
+		<ApplicationIcon>Assets/github_repo_downloader.ico</ApplicationIcon>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="github_repo_downloader.ico" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<PackageReference Include="Octokit" Version="14.0.0" />
+		<PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+	  <Resource Include="Assets\github_repo_downloader.ico" />
+	</ItemGroup>
 
 </Project>

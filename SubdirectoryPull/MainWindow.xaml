@@ -1,43 +1,74 @@
 ﻿<Window x:Class="GitHubDownloader.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="GitHub Repo Downloader" Height="500" Width="600">
-    <Grid>
-        <StackPanel Margin="10">
-            <TextBlock Text="Mod Selection:" />
-            <ComboBox Name="cmbMode" SelectedIndex="0">
+        Title="GitHub Repo Downloader"
+        Icon="Assets/github_repo_downloader.ico" 
+        MinHeight="550" 
+        MinWidth="550"
+        SizeToContent="WidthAndHeight"
+        >
+
+    <Grid Margin="0,0,0,8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="147*"/>
+            <RowDefinition Height="72*"/>
+            <RowDefinition Height="18*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="20,16,20,20" Grid.RowSpan="3" Grid.Row="1">
+            <!-- Mod Selection -->
+            <TextBlock Text="Mod Selection:" Margin="0,5,0,0" FontSize="14" FontWeight="Bold"/>
+            <ComboBox Name="cmbMode" SelectedIndex="0" Margin="0,5,0,5" SelectionChanged="CmbMode_SelectionChanged">
                 <ComboBoxItem Content="Using API" />
+                <ComboBoxItem Content="Only URL" />
                 <ComboBoxItem Content="No API (Git Clone)" />
             </ComboBox>
 
-            <TextBlock Text="GitHub PAT (Token):" />
-            <PasswordBox Name="txtPAT" />
-
-            <TextBlock Text="Repo Owner:" />
-            <TextBox Name="txtRepoOwner" />
-
-            <TextBlock Text="Repo Name:" />
-            <TextBox Name="txtRepoName" />
-
-            <TextBlock Text="Directory Path:" />
-            <TextBox Name="txtFolderPath" />
-
-            <TextBlock Text="Branch:" />
-            <TextBox Name="txtBranch" Text="master" />
-
-            <TextBlock Text="Download To:" />
-            <StackPanel Orientation="Horizontal">
-                <TextBox Name="txtDownloadPath" Width="400" IsReadOnly="True"/>
-                <Button Name="btnBrowse" Content="Browse" Click="btnBrowse_Click" />
+            <!-- GitHub URL -->
+            <TextBlock Text="GitHub Folder URL:" Margin="0,5,0,0" FontSize="14" FontWeight="Bold"/>
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
+                <TextBox Name="txtGitHubUrl" Width="400"/>
+                <Button Name="btnParseUrl" Content="Parse URL" Click="btnParseUrl_Click" Margin="10,0,0,0" Width="79"/>
             </StackPanel>
 
-            <Button Name="btnDownload" Content="İndir" Click="btnDownload_Click" Margin="0,10,0,0"/>
+            <!-- GitHub PAT Token -->
+            <TextBlock x:Name="txtPATLabel" Text="GitHub PAT (Token):" Margin="0,5,0,0" FontSize="14" FontWeight="Bold"/>
+            <PasswordBox Name="txtPAT" Margin="0,5,0,5"/>
 
-            <ProgressBar Name="progressBar" Height="20" Visibility="Hidden" />
+            <!-- Repo Owner -->
+            <TextBlock x:Name="txtRepoOwnerLabel" Text="Repo Owner:" Margin="0,5,0,0" FontSize="14" FontWeight="Bold"/>
+            <TextBox Name="txtRepoOwner" Margin="0,5,0,5"/>
 
-            <TreeView Name="treeViewFiles" Height="150"/>
+            <!-- Repo Name -->
+            <TextBlock x:Name="txtRepoNameLabel" Text="Repo Name:" Margin="0,5,0,0" FontSize="14" FontWeight="Bold"/>
+            <TextBox Name="txtRepoName" Margin="0,5,0,5"/>
 
-            <ListBox Name="lstStatus" Height="100"/>
+            <!-- Directory Path -->
+            <TextBlock x:Name="txtFolderPathLabel" Text="Directory Path:" Margin="0,5,0,0" FontSize="14" FontWeight="Bold"/>
+            <TextBox Name="txtFolderPath" Margin="0,5,0,5"/>
+
+            <!-- Branch -->
+            <TextBlock x:Name="txtBranchLabel" Text="Branch:" Margin="0,5,0,0" FontSize="14" FontWeight="Bold"/>
+            <TextBox Name="txtBranch" Text="master" Margin="0,5,0,5"/>
+
+            <!-- Download Path -->
+            <TextBlock Text="Download To:" Margin="0,5,0,0" FontSize="14" FontWeight="Bold"/>
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
+                <TextBox Name="txtDownloadPath" Width="400" IsReadOnly="True" Margin="0,5,0,5"/>
+                <Button Name="btnBrowse" Content="Browse" Click="btnBrowse_Click" Margin="10,0,0,0" Width="79"/>
+            </StackPanel>
+
+            <!-- Download Button -->
+            <Button x:Name="btnDownload" Content="Download" Click="btnDownload_Click" RenderTransformOrigin="0.501,0.503" Height="33" Width="220" Margin="0,15,0,0"/>
+
+            <!-- Tree View -->
+            <TextBlock Name="treeViewFilesLabel" Text="Tree View" Visibility="Collapsed" Margin="0,5,0,0" FontSize="14" FontWeight="Bold"/>
+            <TreeView Name="treeViewFiles" Visibility="Collapsed" Height="95" Margin="0,0,0,5" />
+
+            <!-- Status -->
+            <TextBlock Name="lstStatusLabel" Visibility="Collapsed" Text="Download Status" Margin="0,5,0,0" FontSize="14" FontWeight="Bold"/>
+            <ListBox x:Name="lstStatus" Visibility="Collapsed" Height="76" />
         </StackPanel>
     </Grid>
 </Window>
