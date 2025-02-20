@@ -1,5 +1,11 @@
 # **GitHub Repo Downloader**
 
+<hr>
+
+<h2><a href="https://apps.microsoft.com/detail/9nxp5h39xz49?hl=en-US&gl=US">📥 Download Here</a><h2>
+
+<hr>
+
 ## 📌 **Overview**
 GitHub Repo Downloader is a **WPF-based GUI application** that allows users to **download specific folders from a GitHub repository**. Users can choose between:
 - **API Mode** (using GitHub API for fetching files)
