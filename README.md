@@ -10,6 +10,7 @@
 GitHub Repo Downloader is a **WPF-based GUI application** that allows users to **download specific folders from a GitHub repository**. Users can choose between:
 - **API Mode** (using GitHub API for fetching files)
 - **Non-API Mode** (using `git sparse-checkout` for downloading specific folders more efficiently)
+- **URL Mode** (using GitHub repo directory URL like `https://github.com/nazifkaraca/Frontend-Bootcamp/tree/main/Week3/3-Advanced-Blog`)
 
 This tool is ideal for developers who want to fetch specific project components **without cloning the entire repository**.
 
